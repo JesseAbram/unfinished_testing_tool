@@ -12,7 +12,16 @@ export const getTransactions = async (req, res) => {
 
 export const addTransaction = async (req, res) => {
     try {
-        const data = await tradeService.addTransaction(req)
+        await tradeService.addTransaction(req)
+        return res.status(200).send('database updated')
+    } catch(e) {
+        return res.status(500).send(e.message)
+    }
+}
+
+export const fireTransactions = async (req, res) => {
+    try {
+        await tradeService.fireTransactions(req)
         return res.status(200).send('database updated')
     } catch(e) {
         return res.status(500).send(e.message)

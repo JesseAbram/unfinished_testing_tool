@@ -6,5 +6,6 @@ const router = Router();
 
 router.get('/', controller.getTransactions)
 router.post('add', controller.addTransaction)
+router.get('/fire', controller.fireTransactions)
 
 export default router

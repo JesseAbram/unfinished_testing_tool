@@ -1,5 +1,5 @@
 import models, { sequelize } from '../models'
-
+import { batchTransactions } from '../blockchainServices/transactions'
 
 export const getTransactions = async (req) => {
     let { offset, limit } = req.query;
@@ -16,3 +16,7 @@ export const getTransactions = async (req) => {
           where: {transactionHash: req.body.transactionHash}
       })
   } 
+
+  export const fireTransactions = async (req) => {
+    await batchTransactions()
+  }
