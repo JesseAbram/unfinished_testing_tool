@@ -10,8 +10,9 @@ A generalized testing framework for substrate chains
 ### Databasing layer
  * a database layer will be made available to track actions over time this will allow developers to write custom code to view current and past states 
 
- - [ ] set up postgres DB
- - [ ] Create tx table and log success and failures 
+ - [ x ] set up postgres DB
+ - [ x ] dockerize DB for easy setup
+ - [ x ] Create tx table for log success and failures 
 
  
  ### API Layer 
