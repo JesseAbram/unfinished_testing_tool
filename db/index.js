@@ -6,7 +6,7 @@ import express from 'express'
 import cors from 'cors'
 import bodyParser from 'body-parser'
 // import {ERASE_DATABASE_ON_SYNC} from './config/configurations'
-// import * as seedData from './seeders'
+import * as seedData from './seeders'
 
 const port = 3001
 const app = express()
@@ -29,11 +29,9 @@ app.use((req, res, next) => {
 app.use('/transaction', routes.transactions)
 
 
-
+// TODO add force sync and optional seed to config
 sequelize.sync({ force: true }).then(async () => {
-  // if (ERASE_DATABASE_ON_SYNC) {
-     // seedData.createTransactions();
-  // }
+     seedData.createTransactions();
     app.listen(port, () => {
     console.log(`sub_crash listening on port ${port}!`)
   })
