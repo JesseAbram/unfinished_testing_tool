@@ -9,3 +9,12 @@ export const getTransactions = async (req, res) => {
         return res.status(500).send(e.message)
     }
 }
+
+export const addTransaction = async (req, res) => {
+    try {
+        const data = await tradeService.addTransaction(req)
+        return res.status(200).send('database updated')
+    } catch(e) {
+        return res.status(500).send(e.message)
+    }
+}
