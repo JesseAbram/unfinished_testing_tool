@@ -10,7 +10,7 @@ export const getTransactions = async (req) => {
   }
 
 
-  export const setTrades = async (req) => {
+  export const addTransaction = async (req) => {
     return await models.transactions.upsert(req.body, {
       }, {
           where: {transactionHash: req.body.transactionHash}

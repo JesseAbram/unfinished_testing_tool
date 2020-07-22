@@ -4,7 +4,7 @@ import axios from 'axios';
 
 export const post = async (data, route) => {
 
-const url = `http://localhost:3001/transactions/${route}`
+const url = `http://localhost:3001/transaction/${route}`
 
 try {
     const response = await axios({
