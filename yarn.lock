@@ -2103,6 +2103,11 @@ get-caller-file@^2.0.1:
   resolved "https://registry.yarnpkg.com/get-caller-file/-/get-caller-file-2.0.5.tgz#4f94412a82db32f36e3b0b9741f8a97feb031f7e"
   integrity sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg==
 
+get-docker-host@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/get-docker-host/-/get-docker-host-1.0.3.tgz#85287f9fa34b37b2c45e8e83e858fca83b95ae77"
+  integrity sha1-hSh/n6NLN7LEXo6D6Fj8qDuVrnc=
+
 get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"

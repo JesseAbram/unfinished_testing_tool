@@ -4,22 +4,21 @@ import Keyring from '@polkadot/keyring';
 
 //TODO private keys from config or deafult alice
 export const batchTransactions = async () => {
-
+console.log("1")
 const keyring = new Keyring();
 const alice = keyring.addFromUri("0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a");
-console.log(alice.address)
+console.log('here')
 let api
-try {
+try { 
  api = await getApi()
 } catch (e) {
   throw new Error(e.message)
-}
-const txs = [
-    api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
-    api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
-  ];
-  console.log(api.tx)
-  // construct the batch and send the transactions
+} 
+// const txs = [
+//     api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
+//     api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
+//   ];
+//   // construct the batch and send the transactions
   const txHash = await api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 123142).signAndSend(alice)
   console.log(txHash)
   // add utility to blockchain...maybe...would this make it not generalized?

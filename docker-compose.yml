@@ -3,7 +3,7 @@ version: "3.7"
 services:
 
   api:
-    build: ./db
+    build: .
     image: api:latest
     volumes:
       - ./db/config:/home/node/config
