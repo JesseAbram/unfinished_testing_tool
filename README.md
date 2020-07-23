@@ -7,7 +7,7 @@ A generalized testing framework for substrate chains
 ### substrate
 - [ ]  x amount of transactions from y accounts with z amount 
 - [ ]  allow config file to call custom SRMLS 
-- [ ]  add utility pallet to chain
+- [x]  add utility pallet to chain
 - [ ]  create custom frame and call it in test 
 
 ### Databasing layer
@@ -22,7 +22,7 @@ A generalized testing framework for substrate chains
 - [x] create a rest api to return data from DB
 
 ### frontend layer 
-- [ ] display chart of transaction failures vs successes
+- [x] display chart of transaction failures vs successes
 - [ ] TPS chart?
 
 
