@@ -1,6 +1,7 @@
 import models, { sequelize } from '../models'
 import { batchTransactions } from '../blockchainServices/transactions'
 
+
 export const getTransactions = async (req) => {
     let { offset, limit } = req.query;
     return await models.transactions.findAll({
@@ -18,5 +19,14 @@ export const getTransactions = async (req) => {
   } 
 
   export const fireTransactions = async (req) => {
-    await batchTransactions()
+    let i = 0
+    while (i < 5) {
+      await batchTransactions()
+      await sleep(5000);
+      i++
+    }
+  }
+
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }

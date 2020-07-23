@@ -1,9 +1,9 @@
-import * as tradeService from '../services/transactions.services'
+import * as transactionsService from '../services/transactions.services'
 
 
 export const getTransactions = async (req, res) => {
     try {
-        const data = await tradeService.getTransactions(req)
+        const data = await transactionsService.getTransactions(req)
         return res.status(200).send(data)
     } catch(e) {
         return res.status(500).send(e.message)
@@ -12,7 +12,7 @@ export const getTransactions = async (req, res) => {
 
 export const addTransaction = async (req, res) => {
     try {
-        await tradeService.addTransaction(req)
+        await transactionsService.addTransaction(req)
         return res.status(200).send('database updated')
     } catch(e) {
         return res.status(500).send(e.message)
@@ -21,7 +21,7 @@ export const addTransaction = async (req, res) => {
 
 export const fireTransactions = async (req, res) => {
     try {
-        await tradeService.fireTransactions(req)
+        await transactionsService.fireTransactions(req)
         return res.status(200).send('database updated')
     } catch(e) {
         return res.status(500).send(e.message)
