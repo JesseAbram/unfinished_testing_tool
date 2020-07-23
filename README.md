@@ -16,7 +16,7 @@ A generalized testing framework for substrate chains
 
  
  ### API Layer 
-- [ ] create a rest api to return data from DB
+- [x] create a rest api to return data from DB
 
 ### frontend layer 
 - [ ] display chart of transaction failures vs successes
