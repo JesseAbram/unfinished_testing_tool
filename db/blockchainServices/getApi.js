@@ -5,10 +5,7 @@ import axios from 'axios'
 
 //TOD add WS to config and custom types to config
 export const getApi = async () => {
-    console.log("here5")
     const host = await getHost()
-    console.log(host)
-    console.log(process.env.ip)
     const wsProvider = new WsProvider(`ws://${process.env.ip}:9944/`);
     //192.168.0.16
     const api = await ApiPromise.create({ provider: wsProvider,  types: {"Address": "AccountId","LookupSource": "AccountId"}});
