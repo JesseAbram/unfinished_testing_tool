@@ -1,6 +1,11 @@
 # sub_crash
 A generalized testing framework for substrate chains
 
+The goal is to be able to run this on most if not all substrate chains out of the box. To do this the project will rely heavily on config files. 
+There are 3/4 parts of the project. A test substrate chain (which can be replaced by the substrate chain to test). A db/api for logging chain info and serving it up to a front end. 
+There is also a frontend to visualize results and since blockchains are community driven maybe to host and allow communities to see blockchain progress.
+
+
 
 ## TODO
 
