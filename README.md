@@ -51,6 +51,11 @@ There is also a frontend to visualize results and since blockchains are communit
     * run your chain ```./target/release/node-template --dev --ws-external```
 
 ### backend 
+* currently .env is needed in root folder for docker container to call out to substrate chain
+```
+    ip=<your-ip>
+```
+
 * navigate to /db
 * ``` docker-compose build ```
 * ``` docker-compose up ```
