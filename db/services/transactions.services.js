@@ -1,5 +1,5 @@
 import models, { sequelize } from '../models'
-import { batchTransactions } from '../blockchainServices/transactions'
+import { nextNonceTransaction } from '../blockchainServices/transactions'
 import { getApi } from '../blockchainServices/getApi'
 
 
@@ -28,7 +28,7 @@ export const getTransactions = async (req) => {
       } 
     let i = 0
     while (i < 5) {
-      await batchTransactions(api)
+      await nextNonceTransaction(api)
       i++
     }
   }
