@@ -4,6 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     transactionHash: DataTypes.STRING,
     isSuccessful: DataTypes.BOOLEAN,
     block: DataTypes.INTEGER,
+    nonce: DataTypes.INTEGER,
     senderAddress: DataTypes.STRING
   }, {});
   Transactions.associate = function(models) {
