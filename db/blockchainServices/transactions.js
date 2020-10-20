@@ -1,18 +1,11 @@
-import {getApi} from "./getApi"
 import Keyring from '@polkadot/keyring';
 import { post } from "../apiCalls/apiCalls"
 
 //TODO private keys from config or deafult alice
-export const batchTransactions = async () => {
+export const batchTransactions = async (api) => {
 const keyring = new Keyring({type: 'sr25519'});
 let alice = keyring.addFromUri("//Alice");
 console.log(alice.address)
-let api
-try { 
- api = await getApi()
-} catch (e) {
-  throw new Error(e.message)
-} 
 // const txs = [
 //     api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
 //     api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),

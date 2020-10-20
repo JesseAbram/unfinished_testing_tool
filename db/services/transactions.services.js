@@ -1,5 +1,6 @@
 import models, { sequelize } from '../models'
 import { batchTransactions } from '../blockchainServices/transactions'
+import { getApi } from '../blockchainServices/getApi'
 
 
 export const getTransactions = async (req) => {
@@ -19,9 +20,15 @@ export const getTransactions = async (req) => {
   } 
 
   export const fireTransactions = async (req) => {
+    let api
+      try { 
+      api = await getApi()
+      } catch (e) {
+        throw new Error(e.message)
+      } 
     let i = 0
     while (i < 5) {
-      await batchTransactions()
+      await batchTransactions(api)
       i++
     }
   }

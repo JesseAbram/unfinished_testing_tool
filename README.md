@@ -65,3 +65,9 @@ There is also a frontend to visualize results and since blockchains are communit
 * ``` yarn ```
 * ``` yarn start ```
 
+
+### Prometheus 
+cd substrate
+docker build -t my-prometheus . --env-file=../.env
+docker run -p 9090:9090 my-prometheus
+./target/release/node-template --dev --prometheus-external
