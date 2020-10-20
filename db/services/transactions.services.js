@@ -22,11 +22,6 @@ export const getTransactions = async (req) => {
     let i = 0
     while (i < 5) {
       await batchTransactions()
-      await sleep(5000);
       i++
     }
-  }
-
-  function sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
   }

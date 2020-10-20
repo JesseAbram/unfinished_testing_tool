@@ -4,8 +4,8 @@ import { post } from "../apiCalls/apiCalls"
 
 //TODO private keys from config or deafult alice
 export const batchTransactions = async () => {
-const keyring = new Keyring();
-const alice = keyring.addFromUri("0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a");
+const keyring = new Keyring({type: 'sr25519'});
+let alice = keyring.addFromUri("//Alice");
 console.log(alice.address)
 let api
 try { 
@@ -18,14 +18,14 @@ try {
 //     api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 12345),
 //   ];
 //   // construct the batch and send the transactions
-  // const nonce = await api.rpc.system.accountNextIndex(alice);
-  // console.log(nonce, {nonce})
-  // console.log(api.tx.balances)
-  const txHash = await api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 123142).signAndSend(alice)
+  const nonce = await api.rpc.system.accountNextIndex(alice.address);
+  console.log(nonce, {nonce})
+  const txHash = await api.tx.balances.transfer("5FLSigC9HGRKVhB9FiEo4Y3koPsNmBmLJbpXg2mp1hXcS59Y", 123142).signAndSend(alice, {nonce})
   const data = {
     transactionHash: txHash.toHex(),
     isSuccessful: true,
-    senderAddress: alice.address
+    senderAddress: alice.address,
+    block: nonce.toString()
   }
   post(data, "add")
   // add utility to blockchain...maybe...would this make it not generalized?
