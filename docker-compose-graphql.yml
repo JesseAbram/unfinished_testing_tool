@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+
+  graphql:
+    image: hasura/graphql-engine:v1.3.0
+    container_name: graphql
+    ports:
+      - '${GQL_PORT}:8080'
+    depends_on:
+      - 'postgres'
+    restart: always
+    environment:
+      HASURA_GRAPHQL_DATABASE_URL: postgres://${DB_USER}:${DB_PASS}@postgres:5432/${DB_NAME}
+      HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
+      # admin secret — remove when not in dev environment
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "${GQL_CONSOLE}"
+      HASURA_GRAPHQL_ADMIN_SECRET: ${GQL_SECRET}
+  
+
+  postgres:
+    image: postgres:12.1
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data: {}
+

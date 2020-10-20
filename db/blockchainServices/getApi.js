@@ -7,7 +7,6 @@ import axios from 'axios'
 export const getApi = async () => {
     const host = await getHost()
     const wsProvider = new WsProvider(`ws://${process.env.ip}:9944/`);
-    //192.168.0.16
     const api = await ApiPromise.create({ provider: wsProvider,  types: {"Address": "AccountId","LookupSource": "AccountId"}});
     await api.isReady;
     return api
