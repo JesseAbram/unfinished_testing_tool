@@ -1,0 +1,8 @@
+User -> Frontend: triggers call
+Frontend -> Api: forwards call 
+Api -> Blockchain: Fires off transactions
+Note right of Api: transcations and state calls will be based on config
+Api -> DB: Stores transaction information
+Api -> Blockchain: queries state
+Api -> DB: Stores state information
+
